@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <script src={% static 'scripts/echarts.js' %}></script>
+</head>
+<body>
+    <h1>ECharts数据。。。</h1>
+    <div id="domContair" style="width:500px; height:500px; background:blanchedalmond   "></div>
+    <script type="text/javascript">
+        // 创建一个ECharts对象
+        
+        var myChart = echarts.init(document.getElementById('domContair'));
+        console.log('Process: > ECharts对象创建.....OK');
+        var option = {
+            title:{text:'ECharts柱状图'},
+            tooltip:{},
+            legend:{data:['销量']},
+            xAxis:{data:['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋','袜子']},
+            yAxis:{},
+            series:[{
+                name:'销量',
+                type:'bar',
+                data:[5,20,36,10,20,10]
+            }]
+        }
+        console.log('Process: > option选项配置信息.....OK');
+        myChart.setOption(option);
+        console.log('Process: > option配置选项.....OK');
+    </script>
+
+
+
+
+</body>
+</html>
