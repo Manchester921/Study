@@ -21,8 +21,7 @@ def get_file_content(filePath):
         return fp.read()
 
 #步骤5：调用函数读取图片
-face_image = get_file_content("Python/test/PIC/1.png")
-
+face_image = get_file_content("D:\\workspace\\Study\\Python\\test\\PIC\\1.png")
 
 
 #步骤6：设置option选项
@@ -34,7 +33,7 @@ data = client.detect(face_image,option)
 
 print(data)
 
-
+print(round(data['result'][0]['beauty'],2))
 
 
 

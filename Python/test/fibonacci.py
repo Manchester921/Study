@@ -7,11 +7,33 @@
 """
 
 num = int(input("请输入需要输出的斐波纳契数列的项数:"))
-a, b, c, count = 1, 1, 2, 0
+a, b, count = 1, 1, 0
 while count < num:
+    print('第%d项的斐波纳契数为：%d' %(count+1, a))
+    a, b, count = b, a+b, count+1
+
+
+
+fibs = [1, 1]
+fib = [fibs.append(fibs[-2] + fibs[-1]) for i in range(num-1)]
+print(fib)
+
+
+
+
+a, b, c, count = 1, 1, 2, 1
+while count <= num:
     print('第%d项的斐波纳契数为：%d' %(count, a))
     a, b, count = b, a+b, count+1
+
 while abs(a/b - b/c) > 0:
     a, b, c = b, c, b+c
-print('黄金分割数为：',b/c)
+print('黄金分割数为：%.50f' % (b/c))
 
+def fibonacci(num):
+    if num == 1 or num == 2:
+        return 1
+    else:
+        return fibonacci(num - 1) + fibonacci(num - 2)
+
+print(fibonacci(num))

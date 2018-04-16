@@ -6,6 +6,7 @@
 """
 
 import time
+
 n = int(input("请输入汉诺塔层数："))
 count, x, y, z = 0,n,0,0
 
@@ -25,7 +26,7 @@ def hanoi(n, X, Y, Z):
         x, y, z = move(X,-1)
         x, y, z = move(Z,1)    
         count += 1
-        print(X,"-->",Z,"   ",x,y,z,"   ",count)
+        print(X,"-->",Z,"   ",x,y,z,"   ",count )
     else:
         hanoi(n-1,X,Z,Y)              #将前面n-1个盘子从x移动到y上面
         x, y, z = move(X,-1)
@@ -44,7 +45,4 @@ print('#'*50)
 print('--> 游戏完成 结束计时.....')
 msecs = (endTime - startTime)         # 计算两次时间差
 print('--> 共耗时耗时：%f s' % msecs)  # 输出结果
-
-
-
 
