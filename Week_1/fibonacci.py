@@ -6,12 +6,12 @@
     用斐波纳契数列计算黄金分隔数
 """
 
+num = int(input("请输入需要输出的斐波纳契数列的项数:")) 
 
 print('~'*50)                 # 常规方法
-num = int(input("请输入需要输出的斐波纳契数列的项数:"))
 a, b, count = 1, 1, 0
 while count < num:
-    print('第%d项的斐波纳契数为：%d' %(count+1, a))
+    print('第%d项的斐波纳契数为：%d' %(count+1, a)) #, end=''
     a, b, count = b, a+b, count+1
 
 
@@ -24,7 +24,9 @@ print(fibs)
 
 print('~'*50)                  # lambda 函数递归法
 fib = lambda n : 1 if n<=2 else fib(n-1)+fib(n-2)
+fib2 = lambda n : [n<=2 and 1 or fib2(n-1)+fib2(n-2)][0]
 print(fib(num))
+print(fib2(num))
 
 
 print('~'*50)                        # 函数递归法
@@ -38,9 +40,6 @@ print(fibonacci(num))
 
 print('~'*50)                         # 黄金分割数
 a, b, c, count = 1, 1, 2, 1
-while count <= num:
-    print('第%d项的斐波纳契数为：%d' %(count, a))
-    a, b, count = b, a+b, count+1
 while abs(a/b - b/c) > 0:
     a, b, c = b, c, b+c
 print('黄金分割数为：%.50f' % (b/c))
