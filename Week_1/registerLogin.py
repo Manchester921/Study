@@ -85,7 +85,7 @@ def login():
     '''用户登陆界面'''
     print('\n\t用户登陆页面\n' + '~'*50)
     acccount = isBlank('账号')
-    if userInfo[acccount] == isBlank('密码', protect=True):
+    if userInfo[acccount] == isBlank('密码', isPass=True, protect=True):
         return True
     else:
         return False

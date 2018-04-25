@@ -5,6 +5,7 @@
     用pip 安装各种Python包  
 """
 
+'''
 pip install pywin32
 
 pip install -U baidu-aip
@@ -29,5 +30,9 @@ pip install -U requests
 
 pip install -U wordcloud
 
+pip install -U xlrd
+pip install -U xlwt
+
 pip list
 
+'''

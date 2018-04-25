@@ -28,7 +28,7 @@ def func(a, b, c, fun):
     elif derta >= 0:
         res1 = ( -b + fun(derta) ) / (2*a)
         res2 = ( -b - fun(derta) ) / (2*a)
-        print('第一个解为:>%s\n第二个解为:>%s' % (res1,res2))
+        print('第一个解为:>%10f\n第二个解为:>%10f' % (res1,res2))
     else:
         print('此题无解')
 
