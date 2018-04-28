@@ -33,6 +33,8 @@ pip install -U wordcloud
 pip install -U xlrd
 pip install -U xlwt
 
+pip install -U Requests
+
 pip list
 
 '''

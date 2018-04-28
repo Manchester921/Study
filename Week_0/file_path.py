@@ -4,8 +4,8 @@
     ~~~~~~~~~~~~~~~~~~
     文件检索
 """
-import(os)
-def iter_path(filePath)
+import os
+def iter_path(filePath):
     #步骤1：遍历指定位置的文件
     files = os.listdir(filePath)
     #步骤2：for循环遍历数据集合
