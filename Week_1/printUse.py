@@ -52,14 +52,15 @@ if __name__ == '__main__':
 
     print('\n' + '~'*50)
     pid = time.strftime('%Y%m%d%H%M%S', time.localtime())
-    pid = time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime())
+    pid = time.strftime('%Yyear-%m-%d %H:%M:%S %Z', time.localtime())
     
 
     for i in range(10):
         # sys.stdout.write('abcd:%s  \r'% time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()) )
         # sys.stdout.flush()
 
-        print('abcd:%s  \r'% time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime()) ,end='', flush=True)
+        print('abcd:%s  \r'% time.strftime('%Yyear-%m-%d %H:%M:%S %Z', time.localtime()) ,end='', flush=True)
+        
         time.sleep(1)
 
 

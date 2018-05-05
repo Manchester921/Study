@@ -44,3 +44,18 @@ while count <= num:
 while abs(a/b - b/c) > 0:
     a, b, c = b, c, b+c
 print('黄金分割数为：%.50f' % (b/c))
+
+
+
+class Fibs:                          # 迭代器版。。
+    def __init__ (self):  
+        self.a =0  
+        self.b =1  
+    def __next__(self):  
+        self.a , self.b = self.b, self.a+self.b  
+        return self.a  
+    def __iter__(self):  
+        return self
+fibs = Fibs()
+for i in range(num):
+    print(next(fibs) ,end=', ')

@@ -35,3 +35,7 @@ for i in range(24):
         lstTitle = regTitle.findall(news)
         lstgAbstract = regAbstract.findall(news)
         print(lstPublish[0] + '\n' + lstTitle[0] + '\n' + lstgAbstract[0].replace('\r\n\t', '') + '\n' + '~'*50)
+
+
+
+

@@ -63,7 +63,8 @@ class SpiderInfo():
 class Menu():
     def __init__(self, userInfo, goodsInfo):
         self.userInfo = userInfo
-        self.goodsInfo =goodsInfo
+        self.goodsInfo = goodsInfo
+        self.account = None
         # 读取基础信息
         pass
 
@@ -99,16 +100,14 @@ class Menu():
     """
     def mainMenu(self):
         """注册登陆界面"""
-        userInfoDate = self.userInfo
         while(True):
             choice = self.menu('用户注册登陆菜单', '\t1.用户登陆\n\t2.用户注册\n\t3.退出系统')
             if choice == '1':
-                account = self.logonMenu()
-                if account:
-                    return account, userInfoDate
+                self.logonMenu()
+                if self.account:
+                    return
             elif choice == '2':
-                userInfoNew = self.loginMenu()
-                userInfoDate.update(userInfoNew)
+                self.loginMenu()
             elif choice == '3':
                 if input('确定退出系统?(y/n):>').lower() == 'y':
                     getpass.getpass('再见~lalala~')
@@ -132,12 +131,10 @@ class Menu():
         code = getpass.getpass('请输入密码：>')
         if account == '' or code == '':
             getpass.getpass('账号或密码不能为空\a')
-            return
         elif account in self.userInfo and code == self.userInfo[account]['code']:
-            return account
+            self.account = account
         else:
             getpass.getpass('账号或密码错误\a')
-            return
 
 
     """ 
@@ -179,7 +176,6 @@ class Menu():
             print('新用户注册')
             print('~'*50)
             account = input('登陆账号:>')
-
             code = getpass.getpass('登陆密码:>')
             code2 = getpass.getpass('确认密码:>')
             if code == code2:
@@ -192,12 +188,8 @@ class Menu():
                     if verifyCode == input('请输入验证邮箱:>'):
                         print('验证成功！')
                         name = input('用户昵称:>')
-                        gender = input('性别:>')
-                        age = input('年龄:>')
-                    userInfoEdit[account] = {
-                        'code': code, 'name': name, 'gender': gender, 'age': age, }
-                    choose = input('是否继续输入(y/n):>')
-                    if choose.lower() != 'y':
+                        self.userInfo[account] = {'code': code, 'name': name}
+                    if input('是否继续输入(y/n):>').lower() != 'y':
                         return userInfoEdit
                 else:
                     getpass.getpass('[错误]请输入正确邮箱<回车继续>\a')
@@ -217,7 +209,7 @@ class Menu():
     def mainMenuUser(self):
         """主菜单界面"""
         while(True):
-            choice = self.menu('主菜单界面  欢迎%s' % self.userInfo[account]['name'],
+            choice = self.menu('主菜单界面  欢迎%s' % self.userInfo[self.account]['name'],
                         '\t1.用户管理\n\t2.报表管理\n\t3.录入商品信息\n\t4.显示全部商品\n\t5.退出登陆')
             if choice == '1':
                 self.accountManage()
@@ -230,9 +222,11 @@ class Menu():
                 self.goodsInfoDisplay()
             elif choice == '5':
                 if input('确定退出登陆?(y/n):>').lower() == 'y':
-                    getpass.getpass('再见~%s~' % self.userInfo[account]['name'])
+                    getpass.getpass('再见~%s~' % self.userInfo[self.account]['name'])
+                    self.account = None
+                    return
             else:
-                getpass.getpass('提示请输入1~5的数字\a')
+                getpass.getpass('<提示>请输入1~5的数字\a')
 
 
     """ 
@@ -246,20 +240,22 @@ class Menu():
         while(True):
             choice = self.menu('用户管理菜单', '\t1.修改密码\n\t2.用户充值\n\t3.退出用户管理菜单')
             if choice == '1':
-                
-                code = getpass.getpass('请输入旧密码:>')
-                if code == 
-
-                code = getpass.getpass('请输入新密码:>')
-                if code == getpass.getpass('请确认新密码:>'):
-                    pass
+                if  getpass.getpass('请输入旧密码:>') == self.userInfo[self.account]['code']:
+                    codeNew = getpass.getpass('请输入新密码:>')
+                    if codeNew == getpass.getpass('请确认新密码:>'):
+                        self.userInfo[self.account]['code'] = codeNew
+                    else:
+                        getpass.getpass('<提示>两次密码输入不一致！\a')
+                else:
+                    getpass.getpass('<提示>密码错误！\a')
+                    
                 
             elif choice == '2':
                 getpass.getpass('正在删除用户...')
             elif choice == '3':
                 break
             else:
-                getpass.getpass('提示请输入1~3的数字\a')
+                getpass.getpass('<提示>请输入1~3的数字\a')
 
 
 
@@ -333,23 +329,17 @@ class Menu():
 
 if __name__ == '__main__':
 
-    userInfo = {'Manchester': {'code': '921','name': 'lalala', 'gender': '男', 'age': '21', }}
+    userInfo = {'Manchester': {'code': '921','name': 'lalala'}}
     goodsInfo = {}
 
 
     while(True):
         # 登陆注册主界面
         menu = Menu(userInfo, goodsInfo)
-        account, userInfoDate = menu.mainMenu()
-        userInfo.update(userInfoDate)
-
-        # 用户安全措施
-        if account not in userInfo:
-            getpass.getpass('[错误]未注册用户！')
-            sys.exit(0)
-            
+        menu.mainMenu()
+        
         # 主菜单界面
-        goodsInfoDate = menu.mainMenuUser()
-        userInfo.update(goodsInfoDate)
+        menu.mainMenuUser()
+        
 
     pass
