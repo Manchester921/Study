@@ -35,6 +35,9 @@ pip install -U xlwt
 
 pip install -U Requests
 
+pip install -U pymysql
+
+
 pip list
 
 '''

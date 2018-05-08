@@ -19,7 +19,7 @@ data =  [{'姓名':'Manchester', '性别':'男', '年龄':22},
          {'姓名':'Lucifer', '性别':'男', '年龄':19}, 
          {'姓名':'Eclipse', '性别':'男', '年龄':21}]
 
-keys = [key for key in data[0]]
+keys = [key for key in data[0]] 
 print(keys)
 
 dataList = [[item[key] for key in keys] for item in data]
