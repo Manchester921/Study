@@ -11,6 +11,8 @@ import json
 import logging
 import time
 
+content = []
+
 class DoubanmoviePipeline(object):
     def __init__(self):
         self.folderName = 'output'
@@ -27,21 +29,36 @@ class DoubanmoviePipeline(object):
         fileHandler.setLevel(logging.INFO)
         fileHandler.setFormatter(formatter)
         self.logger.addHandler(fileHandler)
-        
+
+        now = time.strftime('%Y%m%d', time.localtime())
+        self.jsonFilePath = self.folderName + os.sep + 'doubanMovie_' +now + '.json'
+
+
+
+  
 
 
     def process_item(self, item, spider):
         print('>> writ to json...')
-        now = time.strftime('%Y%m%d', time.localtime())
-        jsonFileName = 'doubanMovie_' +now + '.json'
-        try:
-            with open(self.folderName + os.sep + jsonFileName, 'a') as jsonFile:
-                data = json.dumps(dict(item), ensure_ascii=False) + '\n'
-                jsonFile.write(data)
-        except IOError as err:
-            self.logger.error('IOError')
-            raise('json file error:%s' %(str(err)) )
-        finally:
-            jsonFile.close()
-        
+        # items = {k:item[k][0] for k in item}
+        # content.append(json.dumps(items, ensure_ascii=False))
+
+        # try:
+        #     with open(jsonFilePath, 'w') as jsonFile:
+        #         data = json.dumps(content, ensure_ascii=False)
+        #         jsonFile.write(data)
+        # except IOError as err:
+        #     self.logger.error('IOError')
+        #     raise('json file error:%s' %(str(err)) )
+        # finally:
+        #     jsonFile.close()
+
+        with open(self.jsonFilePath, 'a')as jsonFile:
+            print(dict(item))
+            line = json.dumps(dict(item),ensure_ascii=False ) + "\n"
+            jsonFile.write(line)        
+
+
+
+
         return item

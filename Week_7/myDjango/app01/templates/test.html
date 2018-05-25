@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <style></style>
+    <script type="text/javascript" src="{% static 'script/global.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/test.css' %}" type="text/css" >
+</head>
+<body>
+    <h1>你好！Manchester</h1>
+    <img src="{% static 'images/3b1b.jpg' %}" alt="">
+    <ul>
+        <li>
+            <a href="#">接收客户端GET请求参数</a>
+            <label for="">http://127.0.0.1:8000/app01/</label>
+        </li>
+        <li>
+            <a href="#">接收客户端GET请求参数</a>
+            <label for="">http://127.0.0.1:8000/app01/</label>
+        </li>
+        <li>
+            <h2><a href=""></a>
+            </h2>
+            <form id="greatingForm" method="post" action="../greeting/">
+                {% csrf_token %}
+                <label for="" >请输入您的姓名：</label>
+                <input type="text" name="userName" id="userName" placeholder="关键字" required>
+                <button type="submit">确定</button> 
+            </form>
+        </li>
+
+
+    </ul>
+
+</body>
+</html>

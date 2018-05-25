@@ -1,0 +1,82 @@
+
+
+
+.loginDiv h2{
+    color:rgba(0, 0, 0, 0.8) 
+}
+.loginDiv>h2>span{
+    margin-left: 10px;
+}
+
+.loginDiv{
+    padding: 10px;
+    /* position: absolute; */
+    margin: 200px auto;
+    text-align: center;
+    /* border: 1px  solid; */
+    width: 300px;
+    height: 250px;
+    padding: 50px;
+    background-color: whitesmoke;
+    border-radius: 40px ;
+    box-shadow: 0px 0px 10px dimgrey inset;
+    
+} 
+.loginDiv>h2{
+    margin: 10px;
+    margin-bottom: 30px;
+    /* text-shadow: 5px 5px 10px dimgray; */
+}
+.loginInput{
+    border: 0; 
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    color: gray;
+    padding-left: 15px;
+    border-bottom: 1px wheat solid;
+    border-radius: 40px ;
+    outline: none;
+    box-shadow: 3px 3px 5px dimgrey;
+    
+}
+
+.loginBut{
+    border: 0;
+    background-color: rgb(0, 160, 250);
+    color: white;
+    float: left;
+    font-size: 15px;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    margin: 20px auto;
+    margin-left: -100px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px dimgrey;
+    
+}
+.loginDiv a{
+
+    float: left;
+    font-size: 10px;
+    color: rgb(0, 160, 250);
+    margin: 40px auto;
+    position: absolute;
+    
+    margin-left: 65px;
+    
+    
+}
+#rememberMe{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: -90px;
+}
+.loginForm>p{
+    display: inline-block;
+    position: absolute;
+    margin-left: 8px;
+    margin-top:  7px;
+    font-size: 13px;
+}

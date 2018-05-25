@@ -1,6 +1,6 @@
 # -*- Coding:utf-8 -*-
 """
-    loggingUse.py
+    sqlUse.py
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     logging应用
     @author: Manchester

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <style></style>
+    <script type="text/javascript" src="{% static 'script/global.js' %}"></script>
+    <script type="text/css" src="{% static 'script/search.css' %}"></script>
+
+</head>
+<body>
+
+    <h2>搜索</h2>
+    <form action="#" method="post" id="searchForm">
+        {% csrf_token %}
+        <label for="">搜索</label>
+        <input type="text" name="keywords" id="" placeholder="关键字" required>
+        <button type="submit">搜索</button>
+    </form>
+    {{ message }}
+</body>
+</html>

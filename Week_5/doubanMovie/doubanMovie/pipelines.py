@@ -48,7 +48,7 @@ class DoubanmoviePipeline(object):
         picName = item['rank'][0] +'_'+ item['title'][0]
         try:
             r=requests.get(imgUrl, timeout=2)
-            path = R'.\output\pic\%s.webp'% (picName)
+            path = R'.\output\pic\%s.jpg'% (picName)
             with open(path,'wb') as f:  
                 f.write(r.content) 
         except requests.exceptions.ConnectTimeout:

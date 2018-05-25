@@ -53,7 +53,7 @@ if __name__ == '__main__':
     # 函数形式 主线程结束 子线程未结束 会报错
     # _thread.start_new_thread(workThread, ('Thread-1', 5,)) 
     # _thread.start_new_thread(workThread, ('Thread-2', 3,))
-
+    
     thread01 = MyThread('MyThread-1', 5)
     thread02 = MyThread('MyThread-2', 3)
     thread01.start()

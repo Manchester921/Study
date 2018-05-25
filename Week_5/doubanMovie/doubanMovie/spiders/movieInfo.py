@@ -9,7 +9,7 @@ class MovieinfoSpider(scrapy.Spider):
     name = 'movieInfo'
     allowed_domains = ['douban.com']
     start_urls = ['https://movie.douban.com/top250']
-    # pagesIter =  ['?start=%s&filter='%i for i in range(1,250) if i%25==0]
+    # start_urls =  ['https://movie.douban.com/top250?start=%s&filter='%i for i in range(250) if i%25==0]
     
 
     def parse(self, response):

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <!-- <style></style> -->
+    <!-- <script type="text/javascript" src="{% static 'script/global.js' %}"></script> -->
+    <script type="text/javascript" src="{% static 'script/login.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+</head> 
+<body>
+    <dir class="topDivBG">
+        <div class="topDiv">
+
+            <h2>BLOG online 个人博客</h2> 
+
+        </dir>
+    </div>
+    <div class="loginDiv">
+        <h2>登 陆<span>Login</span></h2>
+        <form class="loginForm" action="/blog/" method="POST" onsubmit="return checkForm()">
+            {% csrf_token %}
+            <input mouseover="" type="text" name="account" id="account"  placeholder="请输入登陆账号" required class="loginInput" value="{{ account }}">
+            <br>
+            <input type="password" name="password" id="password" placeholder="请输入登陆密码" required  class="loginInput" value="{{ password }}">
+            <br>
+            <input type="checkbox" name="rememberMe" id="rememberMe"  onclick="rememberMeFun()" ><p>记住我</p> 
+            <br>
+            <input type="submit" class="loginBut"  value="马上登陆">
+            <a href="register">立即注册</a> 
+        </form>
+    </div>
+</body>
+
+<script>
+    ready()
+</script>
+
+</html>
+
