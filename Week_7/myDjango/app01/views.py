@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.shortcuts import redirect
+from app01.models import BookCategory
+from app01.models import DepInfo
 
 # Create your views here.
 
@@ -19,7 +21,32 @@ def checkCookie(req):
 
 
 def gotoTest(request):
-    return render(request, 'test.html')
+    info = {}
+    info['songs'] = [
+        {'rank':'1', 'name':"3b1b.jpg", 'time':'上榜4天'},
+        {'rank':'1', 'name':'克罗地亚狂想曲', 'time':'上榜4天'},
+        {'rank':'2', 'name':'梦中的婚礼', 'time':'上榜8天'},
+        {'rank':'3', 'name':'夜的钢琴曲', 'time':'上榜3天'},
+        {'rank':'4', 'name':'The Dawn', 'time':'上榜10天'},
+    ]
+    
+    if request.POST:
+        bcname = request.POST.get('BookCategory', None)
+        obj = BookCategory(bcname = bcname)
+        obj.save()
+        info['msg'] = '成功！'
+
+
+    lstBookCategory = BookCategory.objects.all()
+    info['lstBookCategory'] = lstBookCategory
+
+    lstDepInfo = DepInfo.objects.all()
+    info['lstDepInfo'] = lstDepInfo
+
+
+    return render(request, 'test.html', info )
+
+
 def gotoAdds(request, num1, num2):
     return HttpResponse('结果为：%s'%(num1+num2))
 

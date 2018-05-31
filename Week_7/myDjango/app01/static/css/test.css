@@ -3,3 +3,21 @@ img{
     display: block;
     
 }
+
+.songsTable{
+    width: 200px;
+
+}
+
+
+.depTable th td{
+    background-color:blue;
+    color: aliceblue;
+    height: 100px;
+}
+.depTable tr td{
+    background-color: whitesmoke;
+    color: black;
+    height: 30px;
+    text-align: center;
+}

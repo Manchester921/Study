@@ -1,1 +1,6 @@
-
+.topPicDiv{
+    width: 100px;
+    height: 200px;
+    background-color: aqua;
+    background-image: url("{% static 'images/3b1b.jpg' %}");
+}

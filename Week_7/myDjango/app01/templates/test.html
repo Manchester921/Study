@@ -34,6 +34,83 @@
         </li>
 
 
+        <table class="songsTable">
+            豆瓣新碟
+            {% for item in songs %}
+            <tr>
+                <td>
+                    {{ item.rank }}
+                </td>
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.time }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <table class="songsTable">
+            豆瓣新歌
+            {% for item in songs %}
+            <tr>
+                <td>
+                    {{ item.rank }}
+                </td>
+                <td>
+                    <img src="/static/images/{{ item.name }}">
+                </td>
+                <td>
+                    {{ item.time }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <label >http://localhost:8000/category/add/</label>
+        <form action="/test/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="BookCategory" id="">
+            <input type="submit" value="上传数据库">
+        </form>
+        <ul>
+            {{ lstBookCategory }}
+            {% for item in lstBookCategory %}
+            <li> 
+                {{ item.bcid }} - {{ item.bcname }}
+            </li>
+            {% empty %}
+            {% endfor %}
+        </ul>
+
+        <table class="depTable">
+            <tr>
+                <td>部门编号</td>
+                <td>部门名称</td>
+                <td>部门所在地</td>
+                <td>编辑操作</td>
+            </tr>
+            {% for dep in lstDepInfo %}
+            <tr>
+                <td>{{ dep.depId }}</td>
+                <td>{{ dep.depName }}</td>
+                <td>{{ dep.depLoc }}</td>
+                <td>
+                    <input type="button" value="更新">
+                    <input type="button" value="删除">
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">暂无数据</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="">添加部门信息</a>
+
+
+
     </ul>
 
 </body>

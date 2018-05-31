@@ -1,4 +1,4 @@
-"""myDjango URL Configuration
+"""DjangoTest URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,17 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app01 import views as app01_v
-
+from login import views as views_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', app01_v.gotoTest),
-    path('add/<int:num1>+<int:num2>', app01_v.gotoAdds),
-    path('', app01_v.gotoLogin),
-    path('register/', app01_v.gotoRegister),
-    path('blog/', app01_v.blogLogin), 
-    path('blog/logout/', app01_v.logout), 
-    path('category/add/', app01_v.logout), 
-    
+    path('', views_login.gontoLogin),
+    path('home/', views_login.gontoHome),
+    path('logout/', views_login.logout),
 ]

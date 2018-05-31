@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="loginDiv">
+        <h2>登陆Login</h2>
+        <form action="/home/" method="post">
+            {% csrf_token %}
+            <label >账号：</label>
+            <input class="inputDiv" type="text" name="account" id="" value="{{account}}" placeholder="请输入登陆用户名" required>
+            <br><label >{{ msg }}</label>
+            <br><label >密码：</label>
+            <input class="inputDiv" type="password" name="password" id="" value="{{password}}" placeholder="请输入登陆密码" required>
+            <br>
+            <input class="submitBtn" type="submit" value="马上登陆">
+        </form>
+    </div>
+</body>
+</html>
