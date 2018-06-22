@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}"/>
+</head>
+<body>
+    <h1>组的创建</h1>
+    <form id="createGroupForm" name="createGroupForm" method="post" action="/app/group/create/" onsubmit="return validate();">
+        {% csrf_token %}
+        <p>
+            <label class="input_font">组名称：</label>
+            <input type="text" id="name" name="name" placeholder="组名不能重复" required/>
+        </p>
+        <p>
+            <button type="submit" class="btnsubmit">立即创建</button>
+        </p>
+    </form>
+    <p>
+        <label id="error_msg" style="color:rgb(163, 42, 42)">{{ error_msg }}</label>
+        <label style="color:rgb(44, 189, 80)">{{ success_msg }}</label>
+    </p>    
+</body>
+</html>

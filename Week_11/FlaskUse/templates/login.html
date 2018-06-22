@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', _external=True) }}">
+</head>
+<body>
+    <h2>登陆 Login</h2>
+    <form action="/login" method="post">
+        <p>
+            <input type="text" name="loginAccount" id="" placeholder="请输入账号" value="{{ loginAccount }}">
+        </p>
+        <p>
+            <input type="password" name="loginPassword" id="" placeholder="请输入密码" value="{{ loginPassword }}">
+        </p>
+        <p>
+            <input type="checkbox" name="remember" id=""value="1">
+            记住我
+        </p>
+        <p>
+            <input type="submit" value="立即登陆">
+        </p>
+    </form>
+    <p>
+        {{ msg }}
+    </p>
+</body>
+</html>
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/globle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <script type="text/javascript" src="{% static 'script/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'script/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'script/header.js' %}"></script>
+
+</head>
+<body>
+
+    <dir class="headerDivBG">
+        <div class="headerDiv">
+            <h2>Online BLOG</h2> 
+            
+            <span id="headerVisitorSpan" >
+                <img class="headerAccPic" src="{% static 'images/default-user.png' %}" alt="">
+                
+                <a class="loginBGon">[登陆]</a>
+                <a class="registerBGon">[注册]</a>
+            </span> 
+            
+            <span id="headerAccSpan">
+                <img class="headerAccPic" src="{% static 'images/default-user.png' %}" alt="">
+                <label id="loginNickname">{{ nickname }}</label>
+                <a id="logoutBtn" href="/blog/logout/">[退出]</a>
+            </span>
+
+        </dir>
+
+    </div>
+
+
+    <div id="loginBG">
+    </div>
+
+
+    <div class="loginDiv">
+        <h2>登 陆<span>Login</span></h2>
+        <form class="loginForm" action="" method="POST" onsubmit="return checkForm()">
+            {% csrf_token %}
+            <input mouseover="" type="text" name="account" id="account"  placeholder="请输入登陆账号" required class="loginInput" value="{{ account }}">
+            <br>
+            <input type="password" name="password" id="password" placeholder="请输入登陆密码" required  class="loginInput" value="{{ password }}">
+            <br>
+            <input type="checkbox" name="rememberMe" id="rememberMe"  onclick="rememberMeFun()" ><p>记住我</p> 
+            <br>
+            <input type="submit" class="loginBut"  value="马上登陆">
+            <a class="registerBGon">立即注册</a> 
+        </form>
+    </div>
+    
+    
+    <div class="registerDiv">
+
+        <h2>注 册<span>Register</span></h2>
+        <div class="regLeftDiv">
+            <ul>
+                <li>登陆账号：</li>
+                <li>登陆密码：</li>
+                <li>密码确认：</li>
+                <li>用户昵称：</li>
+
+            </ul>
+        </div>  
+            
+        <form method="post" onsubmit="return checkForm()">
+            {% csrf_token %}
+            <div class="rightDiv">
+                <ul>
+                    <li>
+                        <input class="rigesterInput" type="text" name="account" id="regaccount" placeholder="请输入邮箱地址/电话号码" required  >
+                    </li>
+                    <li>
+                        <input class="rigesterInput" type="password" name="password" id="regpassword" placeholder="请输入不少于6位的字符" required>
+                        <label for="" class="pwlabel">两次密码不一致</label>
+                    </li>
+                    <li>
+                        <input class="rigesterInput" type="password" name="password2" id="regpassword2" placeholder="两次密码一致" required  >
+                    </li>
+                    <li>
+                        <input class="rigesterInput" type="text" name="nickname" id="regnickname" placeholder="请输入不少于3位的字符" required >
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            <div class="bottomDiv">
+                <input class="regBut" id="registerSubmit" type="submit" value="立即注册"><a class="loginBGon">返回登陆</a>
+            </div>
+        </form>
+        </div>
+        
+    </div>
+
+    <div style="clear: both;"></div>
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'script/chkselect.js' %}"></script>
+</head>
+<body>
+
+    
+    <form method="post" action="/app/group/removeuser/{{ group.id }}">
+        {% csrf_token %}
+
+    
+        <p>
+            <h2>[{{ group.name }}]&nbsp;现有成员列表：</h2>
+        </p>
+        <p>
+            {% for user in lstUsers %}
+            <input type="checkbox" name="chkUserID" value="{{ user.id }}">
+            <label style="font-weight:bold;">{{ user.username }}</label>
+            {% endfor %}
+        </p>
+        <p>
+            <a href="#" onclick="javascript:selectAllChks('chkUserID');">全选</a>&nbsp;&nbsp;
+            <a href="#" onclick="javascript:removeAllChks('chkUserID');">全部取消</a>&nbsp;&nbsp;
+            <a href="#" onclick="javascript:reverseAllChks('chkUserID');">反选</a>&nbsp;&nbsp;            
+        </p>
+
+        <br>
+
+        <span id="CreateGroupSucmsg" style="color:green;"></span>
+        <span id="CreateGroupErrormsg" style="color:brown;"></span>
+
+        <button id="addGroupUserSubmit" type="submit" class="btn btn-primary">删除组成员</button>
+
+
+    </form>
+
+
+
+
+
+
+
+
+    
+
+
+</body>
+</html>

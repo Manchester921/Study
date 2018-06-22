@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/chkselect.js' %}"></script>
+</head>
+<body>
+    <h1>添加组用户</h1> 
+    <!-- 表单 -->
+    <form id="managerFrom" name="managerForm" method="post" action="/app/group/adduser/{{ group.id }}">
+        {% csrf_token %}
+        <p><h2>[{{ group.name }}]&nbsp;可添加成员列表</h2></p>
+        <p>
+            {% for user in lstUsers %}
+            {% if group in user.groups.all %}
+            <input type="checkbox" name="chkUserID" checked disabled value="{{ user.id }}">{{ user.username }}
+            {% else %}
+            <input type="checkbox" name="chkUserID" value="{{ user.id }}">
+            <label style="font-weight:bold;">{{ user.username }}</label>
+            {% endif %}
+            {% endfor %}
+        </p>
+        <p>
+            <a href="#" onclick="javascript:selectAllChks('chkUserID');">全选</a>&nbsp;&nbsp;
+            <a href="#" onclick="javascript:removeAllChks('chkUserID');">全部取消</a>&nbsp;&nbsp;
+            <a href="#" onclick="javascript:reverseAllChks('chkUserID');">反选</a>&nbsp;&nbsp;            
+        </p>
+        <p>
+            <button type="submit" class="btnsubmit">新增组员</button>
+            <button type="submit" class="btnsubmit" onclick="location='/app/group/queryall/';">返回</button>
+        </p>
+    </form>    
+</body>
+</html>

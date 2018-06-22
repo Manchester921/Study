@@ -1,0 +1,59 @@
+.bodyDiv{
+    max-width: 1200px;
+    border: 1px black solid;
+    margin: 50px auto;
+    /* float: left; */
+}
+
+.bobyLeftDiv{
+    float: left;
+    width: 200px;
+    border: 1px blue solid;
+    
+}
+
+.bobyLeftDiv ul li{
+    border: 1px blueviolet solid;
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+
+
+.bobyRightDiv{
+    float: left;
+    width: 700px;
+    border: 1px red solid;
+}
+
+.bobyRightDiv ul li .blogContent{
+    height: 200px;
+    width: 700px;
+    border: 1px black solid;
+    padding: 10px;
+    position: relative;
+}
+.bobyRightDiv ul li div img{
+    height: 40px;
+    width: 40px;
+    border: 1px black solid;
+    float: left;
+} 
+
+.title{
+    border: 1px black solid;
+    display: inline-block;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.2em;
+}
+.blogContent p{
+    margin-left: 50px;
+}
+.blogInfos{
+    position: absolute;
+    bottom: 0;
+}
+
+

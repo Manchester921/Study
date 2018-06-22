@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/createuser.js' %}"></script>
+    <script language="JavaScript" type="text/javascript">
+        // 页面窗体预加载函数方法
+        window.onload = function(){
+            // 调用createCode()
+            createCode();
+        }       
+    </script>
+</head>
+<body>
+    <h1>创建用户</h1>
+    <form id="createUserForm" name="createUserForm" method="post" action="/app/user/create/" onsubmit="return validate();">
+        {% csrf_token %}
+        <p>
+            <label class="input_font">登录账号：</label>
+            <input type="text" id="username" name="username" placeholder="用户名不能重复" required/>
+        </p>
+        <p>
+            <label class="input_font">登录密码：</label>
+            <input type="password" id="password" name="password" placeholder="密码不能为空" required/>
+        </p>
+        <p>
+            <label class="input_font">密码确认：</label>
+            <input type="password" id="repass" name="repass" placeholder="两次密码一致" required/>
+        </p>
+        <p>
+            <label class="input_font">联系方式：</label>
+            <input type="text" id="phone" name="phone" placeholder="电话号码" required/>
+        </p>
+        <p>
+            <label class="input_font">用户验证：</label>
+            <input type="text" style="width:80px;" id="validateCode" name="validateCode" placeholder="验证码" required/>&nbsp;&nbsp;
+            <span id="checkCode" style="cursor:pointer;" onclick="javascript:createCode();"></span>
+        </p>
+        <p>
+            <button type="submit" class="btnsubmit">立即创建</button>
+        </p>
+    </form>
+    <p>
+        <label id="error_msg" style="color:rgb(163, 42, 42)">{{ error_msg }}</label>
+        <label style="color:rgb(44, 189, 80)">{{ success_msg }}</label>
+    </p>    
+</body>
+</html>

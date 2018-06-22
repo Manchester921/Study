@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
+    <script type="text/javascript" src="{% static 'script/account.js' %}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <!-- <h2>account</h2> -->
+    
+    
+    
+    
+        <div class="container">
+            
+            <div class="row">
+                    <div class="jumbotron " style="background-image: url({% static 'images/3b1b.jpg' %});background-size:100%">
+                        <img src="" alt="" class="img-responsive">
+                        <br><br><br><br><br><br><br>
+                        <p>
+                            <a class="btn btn-primary btn-lg" role="button" id="publishBlog" href="publish/">
+                                发布博文
+                            </a>
+                        </p>
+                    </div>
+                
+                <div class="BlogAccPic">
+                    <img src="{% static 'images/default-user.png' %}" alt="" class="img-circle">
+    
+                </div>
+                
+    
+            </div>
+    
+    
+    
+            <div class="row">
+        
+            <div class="col-sm-3">
+                <h4>博文分类</h4>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li>
+                        <a href="#">生活类</a>
+                    </li>
+                    <li>
+                        <a href="#">技术类</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="col-sm-9">
+                <h4>最新发布</h4>
+    
+    
+    
+                <div class="row">
+    
+    
+                    <div class="col-xs-12">
+        
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">面板标题</h3>
+                            </div>
+                            <div class="panel-body">
+                                这是一个基本的面板
+                            </div>
+                            <div class="panel-footer" style="padding: 0">
+    
+                                <ol class="breadcrumb"style="margin: 0">
+                                    <li>
+                                        <a href="#">生活</a>
+                                    </li>
+    
+                                    <li class="active">
+                                        2018-06-06
+                                    </li>
+                                </ol>
+    
+                            </div>
+                        </div>
+        
+                    </div>
+    
+    
+                </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        
+            </div>
+        
+            </div>
+        
+        </div>
+    
+    
+    
+    
+
+    
+
+
+
+
+
+    {% include 'footer.html' %}
+    
+</body>
+</html>

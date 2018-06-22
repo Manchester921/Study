@@ -1,0 +1,269 @@
+.headerDivBG{
+    /* background-color: slateblue; */
+    color: aliceblue;
+    /* height: 50px; */
+    width: 100%;
+    background: rgb(0, 160, 250);
+    box-shadow: 0px 0px 10px dimgray ;
+    overflow:auto;
+    /* position: ; */
+}
+
+.headerDiv{
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px black solid;
+}
+.headerDiv h2{
+    margin: 0 auto;
+    line-height: 50px;
+    display: inline-block;
+}
+.headerDiv span{
+    float: right;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.headerDiv span a{
+    color: aliceblue;
+    
+}
+.headerDiv span a:hover{
+    color: blue;
+    cursor: pointer;
+}
+.headerDiv span a{
+    color: aliceblue;
+    
+}
+.headerDiv span a:visited{
+    color: aliceblue;
+}
+.headerAccPic{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+
+
+
+#loginBG{
+    margin: 0 auto;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+    display: none;
+    /* border: 1px solid red; */
+    z-index: 1000;
+}
+
+.loginDiv h2{
+    color:rgba(0, 0, 0, 0.8) 
+}
+.loginDiv>h2>span{
+    margin-left: 10px;
+}
+
+.loginDiv{
+    opacity: 1;
+    padding: 10px;
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+    margin: 200px auto;
+    text-align: center;
+    /* border: 1px  solid blueviolet; */
+    width: 400px;
+    height: 380px;
+    padding: 50px;
+    background-color: whitesmoke;
+    border-radius: 40px ;
+    box-shadow: 0px 0px 10px dimgrey inset;
+    z-index: 1002;
+    
+} 
+.loginDiv>h2{
+    margin: 10px;
+    margin-bottom: 30px;
+    /* text-shadow: 5px 5px 10px dimgray; */
+}
+.loginInput{
+    border: 0; 
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    color: gray;
+    padding-left: 15px;
+    border-bottom: 1px wheat solid;
+    border-radius: 40px ;
+    outline: none;
+    box-shadow: 3px 3px 5px dimgrey;
+    
+}
+
+.loginBut{
+    border: 0;
+    background-color: rgb(0, 160, 250);
+    color: white;
+    float: left;
+    font-size: 15px;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    margin: 20px auto;
+    margin-left: -100px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px dimgrey;
+    cursor: pointer;
+    
+}
+.loginDiv a{
+
+    float: left;
+    font-size: 10px;
+    color: rgb(0, 160, 250);
+    margin: 40px auto;
+    position: absolute;
+    margin-left: 65px;
+
+    cursor: pointer;
+    
+}
+#rememberMe{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: -90px;
+}
+.loginForm>p{
+    display: inline-block;
+    position: absolute;
+    margin-left: 8px;
+    margin-top:  7px;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+.registerDiv{
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 1002;
+    width: 450px;
+    height: 450px;
+    margin: 175px auto;
+    /* border: 1px black solid; */
+    border-radius: 40px ;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 10px dimgray inset;
+    
+}
+.registerDiv>h2{
+    line-height: 80px;
+    text-align: center;
+
+}
+.registerDiv>h2>span{
+    margin-left: 10px;
+}
+.regLeftDiv{
+    float: left;
+    width: 120px;
+    /* border: 1px blue solid; */
+    margin-left: 20px;
+}
+.rightDiv{
+    float: right;
+    width: 225px;
+    /* border: 1px red solid; */
+    margin-right: 80px;
+    
+}
+ul{
+    list-style: none;
+}
+.regLeftDiv ul li{
+    width: 120px;
+    height: 50px;
+    text-align: right;
+    line-height: 25px;
+    text-shadow: 0px 0px 0px dimgray;
+    
+}
+
+.rightDiv ul li img~input{
+    margin-left: 70px;
+    outline: 0;
+}
+
+.rightDiv ul li{
+    width: 225px;
+    height: 50px;
+}
+.rightDiv ul li label{
+    font-size: 10px;
+    color: red;
+    margin-left: 50px;
+    margin-top: -20px;
+    /* border: 1px black solid; */
+    display: none;
+}
+.rigesterInput{
+    border: 0; 
+    width: 200px;
+    height: 30px;
+    color: gray;
+    border-bottom: 1px wheat solid;
+    border-radius: 40px ;
+    outline: none;
+    box-shadow: 3px 3px 5px dimgrey;
+    padding-left: 15px;
+    border: 1px dimgrey solid;
+    box-shadow: 0px 0px 5px dimgrey inset;
+    
+}
+
+
+.regBut{
+    border: 0;
+    background-color: rgb(0, 160, 250);
+    color: white;
+    float: left;
+    font-size: 15px;
+    width: 150px;
+    height: 40px;
+    /* margin-top: 20px; */
+    margin-left: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px dimgrey;
+    outline: 0;
+    cursor: pointer;
+    
+}
+.bottomDiv{
+    width: 250px;
+    margin: 0 auto;
+    display: block;
+}
+
+.bottomDiv a{
+    cursor: pointer;
+    float: left;
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgb(0, 160, 250);
+    margin-left: 15px
+}

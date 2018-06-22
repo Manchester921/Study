@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <script type="text/javascript" src="{% static 'script/home.js' %}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+
+    <div class="bodyDiv">
+        <div class="bobyLeftDiv">
+            <h2>
+                博文分类
+            </h2>
+            <ul>
+                <li>
+                    <a>
+                        全部
+                    </a>
+                </li>
+
+                <li>
+                    <a>
+                        技术类 
+                    </a>
+                </li>
+                
+                <li>
+                    <a>
+                        生活类
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+
+        <div class="bobyRightDiv">
+            <h2>
+                最新发布
+            </h2>
+            <ul>
+
+                <li>
+                    <div class="blogContent">
+                        <img src="{% static 'images/default-user.png' %}" alt="">
+                        <a class="title" href="">title</a>
+                        <p >
+                            这是博文的内容...
+                        </p>
+                        <div class="blogInfos">
+                            <p >
+                                <a href="">Manchester</a>
+                                <label>2018-06-06</label>
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+                <hr>
+
+            </ul>
+
+
+        </div>
+        <br>
+
+    </div>
+
+    {% include 'footer.html' %}
+    
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'script/chkselect.js' %}"></script>
+</head>
+<body>
+
+    
+    <form method="post" action="/app/group/adduser/{{ group.id }}">
+        {% csrf_token %}
+
+    
+        <p>
+            <span id="addUserGroupName">[{{ group.name }}]</span>
+            <span>&nbsp;可添加成员列表</span>
+        </p>
+        <p>
+            {% for user in lstUsers %}
+                {% if group in user.groups.all %}
+                <input type="checkbox" name="chkUserID" checked disabled value="{{ user.id }}">{{ user.username }}
+                {% else %}
+                <input type="checkbox" name="chkUserID" value="{{ user.id }}">
+                <label >{{ user.username }}</label>
+                {% endif %}
+            {% empty %}
+                <label>暂无可添加成员</label>
+            {% endfor %}
+        </p>
+        <p>
+            <a href="#" onclick="javascript:selectAllChks('chkUserID');">全选</a>&nbsp;&nbsp;
+            <a href="#" onclick="javascript:removeAllChks('chkUserID');">全部取消</a>&nbsp;&nbsp;
+            <a href="#" onclick="javascript:reverseAllChks('chkUserID');">反选</a>&nbsp;&nbsp;            
+        </p>
+
+        <br>
+
+        <span id="CreateGroupSucmsg" style="color:green;"></span>
+        <span id="CreateGroupErrormsg" style="color:brown;"></span>
+
+        <button id="addGroupUserSubmit" type="submit" class="btn btn-primary">添加组成员</button>
+
+
+    </form>
+
+
+
+
+
+
+
+
+    
+
+
+</body>
+</html>

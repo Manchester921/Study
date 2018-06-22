@@ -1,0 +1,14 @@
+.footerBG{
+    color: aliceblue;
+    /* height: 50px; */
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 10px dimgray ;
+}
+.footerDiv{
+    max-width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px black solid;
+}
+

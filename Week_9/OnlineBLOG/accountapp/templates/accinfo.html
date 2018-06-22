@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <script type="text/javascript" src="{% static 'script/home.js' %}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="accInfoDiv">
+
+        <h2>注 册<span>Register</span></h2>
+        <div class="accInfoLeftDiv">
+            <ul>
+                <li>登陆密码：</li>
+                <li>密码确认：</li>
+                <li>用户昵称：</li>
+                <li>用户头像：</li>
+                <li>用户性别：</li>
+                <li>所在城市：</li>
+                <li>个性签名：</li>
+            </ul>
+        </div>  
+        
+        <form action="" method="post" onsubmit="return checkForm()">
+            {% csrf_token %}
+            <div class="accInfoRightDiv">
+                <ul>
+                    <li>
+                        <input class="rigesterInput" type="password" name="password" id="password" placeholder="请输入不少于6位的字符" required>
+                        <label for="" class="pwlabel">两次密码不一致</label>
+                    </li>
+                    <li>
+                        <input class="rigesterInput" type="password" name="password2" id="password2" placeholder="两次密码一致" required  >
+                    </li>
+                    <li><input class="rigesterInput" type="text" name="name" id="" placeholder="请输入不少于6位的字符" required ></li>
+                    <li><img src=" {% static 'images/default-user.png' %} " alt=""> <input type="file" name="userPic" id=""></li>
+                    <li>
+                        <input type="radio" name="sex" id="" value="" required/>男
+                        <input type="radio" name="sex" id="" value="" />女
+                    </li>
+                    
+                    <li>
+                        <select name="city" id="" required >
+                            <option value="北京">北京</option>
+                            <option value="武汉">武汉</option>
+                        </select>
+                    </li>
+                    <li><input class="rigesterInput" type="text" name="quote" id=""placeholder="请输入不大于30个字" required ></li>
+                    
+                </ul>
+                
+            </div>
+            <div class="bottomDiv">
+                <input class="loginBut" type="submit" value="修改">
+            </div>
+        </form>
+    </div>
+
+    {% include 'footer.html' %}
+    
+</body>
+</html>
