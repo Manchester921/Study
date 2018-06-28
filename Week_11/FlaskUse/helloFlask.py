@@ -1,8 +1,42 @@
-from flask import Flask, request, render_template, Response
+from flask import Flask, request, render_template, redirect, Response, session
 from settings import config
+from flask_sqlalchemy import SQLAlchemy
+
+import os
 
 app = Flask(__name__)
 app.config.from_object(config['development'])
+app.secret_key = os.urandom(25)
+
+db = SQLAlchemy(app)
+
+class Roles(db.Model):
+    __tablename__ = 'Roles'
+    rid = db.Column(db.Integer, primary_key=True)
+    rname = db.Column(db.String(32))
+
+    def __init__(self):
+        self.rname = rname
+    
+    def __repr__(self):
+        return 'Roles:[%s,%s]' %(self.rid, self.rname)
+
+
+
+
+
+db.create_all()
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route('/')
@@ -22,11 +56,16 @@ def gotoLogin():
         loginPassword = request.values.get('loginPassword', None)
         remember = request.values.get('remember', None)
         if loginAccount=='admin' and loginPassword=='123':
+            session['account'] = 'admin'
+
             msg = '登陆成功'
+            resp = Response('你好！', session.get('account'))
             resp = Response(render_template('login.html', msg=msg))
+            
             if remember:
                 resp.set_cookie('loginAccount', loginAccount)
         else:
+
             return render_template('login.html',msg = '用户名或密码错误')
 
         return resp
